@@ -4,8 +4,8 @@
   "description": "Telegram Mini App for immersive Uzbek PDF reading",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
+    "dev": "node start-local.js",
+    "start": "node start-local.js",
     "bot": "node bot.js"
   },
   "keywords": [],

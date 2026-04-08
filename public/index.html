@@ -2,43 +2,47 @@
 <html lang="uz">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Kutubxona Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Kutubxona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/static/styles.css" />
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </head>
-  <body data-theme="night">
-    <div class="library-shell">
-      <header class="top-bar">
-        <div class="book-meta">
-          <p class="kicker">Telegram Kutubxona</p>
-          <h1>Superintelligence</h1>
-          <p id="pageLabel">Sahifa: 0 / 0</p>
-        </div>
-        <div class="top-actions">
-          <button id="themeBtn" class="ghost-btn" type="button">Tema</button>
-          <button id="fullscreenBtn" class="ghost-btn" type="button">Full screen</button>
-        </div>
-      </header>
-
-      <main class="reader-stage">
-        <div id="loadingState" class="loading">Kitob yuklanmoqda...</div>
-        <canvas id="pageCanvas" aria-label="PDF sahifa"></canvas>
-      </main>
-
-      <section class="control-panel">
-        <div class="row">
-          <button id="prevBtn" type="button">Oldingi</button>
-          <input id="pageSlider" type="range" min="1" max="1" value="1" />
-          <button id="nextBtn" type="button">Keyingi</button>
-        </div>
-        <div class="row compact">
-          <button id="zoomOutBtn" type="button">A-</button>
-          <button id="zoomInBtn" type="button">A+</button>
-          <span id="zoomLabel">100%</span>
-        </div>
-      </section>
+  <body>
+    <div id="app">
+      <div class="page-loading">
+        <div class="loading-spinner"></div>
+        <p>Kutubxona yuklanmoqda...</p>
+      </div>
     </div>
+
+    <nav id="bottomNav" class="bottom-nav">
+      <a href="#/" class="nav-item active" data-tab="home">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Bosh sahifa</span>
+      </a>
+      <a href="#/categories" class="nav-item" data-tab="categories">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        <span>Turkumlar</span>
+      </a>
+      <a href="#/profile" class="nav-item" data-tab="profile">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Profil</span>
+      </a>
+    </nav>
 
     <script type="module" src="/static/app.js"></script>
   </body>
