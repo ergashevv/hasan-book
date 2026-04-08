@@ -35,9 +35,12 @@ bot.command("kitob", async (context) => {
   );
 });
 
-bot.launch().then(() => {
-  console.log("Telegram bot ishga tushdi.");
-});
+if (require.main === module) {
+  bot.launch().then(() => {
+    console.log("Telegram bot ishga tushdi (polling rejim).");
+  });
+  process.once("SIGINT", () => bot.stop("SIGINT"));
+  process.once("SIGTERM", () => bot.stop("SIGTERM"));
+}
 
-process.once("SIGINT", () => bot.stop("SIGINT"));
-process.once("SIGTERM", () => bot.stop("SIGTERM"));
+module.exports = bot;

@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const bot = require("./bot");
 const {
   hasDatabase,
   ensureSchema,
@@ -174,6 +175,35 @@ app.get("/api/user/:userId/stats", async (req, res) => {
   try {
     const stats = await getUserStats(uid);
     res.json({ ok: true, stats });
+  } catch (err) {
+    res.status(500).json({ ok: false, message: err.message });
+  }
+});
+
+const WEBHOOK_PATH = `/api/bot-webhook`;
+
+app.post(WEBHOOK_PATH, (req, res) => {
+  bot.handleUpdate(req.body, res).catch((err) => {
+    console.error("Webhook xatolik:", err);
+    res.sendStatus(200);
+  });
+});
+
+app.get("/api/setup-webhook", async (req, res) => {
+  const secret = req.query.secret;
+  if (secret !== process.env.BOT_TOKEN?.slice(-10)) {
+    return res.status(403).json({ ok: false, message: "Ruxsat yo'q" });
+  }
+  const webAppUrl =
+    process.env.WEBAPP_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+  if (!webAppUrl) {
+    return res.status(400).json({ ok: false, message: "WEBAPP_URL topilmadi" });
+  }
+  try {
+    const webhookUrl = `${webAppUrl}${WEBHOOK_PATH}`;
+    await bot.telegram.setWebhook(webhookUrl);
+    res.json({ ok: true, webhook: webhookUrl });
   } catch (err) {
     res.status(500).json({ ok: false, message: err.message });
   }
