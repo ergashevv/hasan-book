@@ -50,7 +50,44 @@ const icons = {
   heartFilled: '<svg width="20" height="20" viewBox="0 0 24 24" fill="#e74c3c" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
   book: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
   chevron: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>',
+  moon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+  sun: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+  scroll: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg>',
+  books: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="6" x2="12" y2="13"/><line x1="9" y1="13" x2="15" y2="13"/></svg>',
+  cpu: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>',
+  flask: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v7l5 8a2 2 0 0 1-1.7 3H5.7A2 2 0 0 1 4 18l5-8V3z"/><line x1="9" y1="3" x2="15" y2="3"/></svg>',
+  lightbulb: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>',
+  briefcase: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+  clock: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  bookOpen: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+  brain: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 4.5 2.8A4 4 0 0 1 20 8.5a4 4 0 0 1-1 7.3A5 5 0 0 1 12 22a5 5 0 0 1-7-6.2 4 4 0 0 1-1-7.3 4 4 0 0 1 3.5-3.7A5 5 0 0 1 12 2z"/><path d="M12 2v20"/><path d="M8 6c2 1 4 1 8 0"/><path d="M7.5 12H12"/><path d="M16.5 12H12"/></svg>',
+  target: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  library: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
 };
+
+const categoryIconMap = {
+  cpu: icons.cpu,
+  flask: icons.flask,
+  lightbulb: icons.lightbulb,
+  briefcase: icons.briefcase,
+  scroll: icons.scroll,
+  bookOpen: icons.bookOpen,
+  brain: icons.brain,
+  target: icons.target,
+  library: icons.library,
+  book: icons.book,
+  clock: icons.clock,
+  moon: icons.moon,
+  sun: icons.sun,
+  search: icons.search,
+  heart: icons.heart,
+};
+
+function getCategoryIcon(iconName, size) {
+  const svg = categoryIconMap[iconName] || icons.library;
+  if (!size) return svg;
+  return svg.replace(/width="\d+"/, `width="${size}"`).replace(/height="\d+"/, `height="${size}"`);
+}
 
 /* ═══ Helpers ═══ */
 
@@ -213,7 +250,7 @@ function renderHome() {
   const catsHTML = store.categories
     .map(
       (c) => `<div class="category-chip" data-id="${c.id}">
-      <span class="chip-icon">${c.icon}</span>
+      <span class="chip-icon">${getCategoryIcon(c.icon)}</span>
       <span class="chip-name">${esc(c.name_uz)}</span>
       ${Number(c.book_count) > 0 ? `<span class="chip-count">${c.book_count}</span>` : ""}
     </div>`,
@@ -266,7 +303,7 @@ function renderHome() {
     <div class="section">
       <div class="section-header"><h3>Barcha kitoblar</h3></div>
       <div class="books-grid" id="booksGrid">${booksHTML}</div>
-      ${store.books.length === 0 ? '<div class="empty-state"><div class="empty-icon">📚</div><h3>Hozircha kitob mavjud emas</h3><p>Tez orada kitoblar qo\'shiladi</p></div>' : ""}
+      ${store.books.length === 0 ? `<div class="empty-state"><div class="empty-icon">${getCategoryIcon("library", 48)}</div><h3>Hozircha kitob mavjud emas</h3><p>Tez orada kitoblar qo'shiladi</p></div>` : ""}
     </div>
   </div>`;
 
@@ -311,7 +348,7 @@ function renderCategories() {
       ${store.categories
         .map(
           (c) => `<div class="category-card" data-id="${c.id}" style="--cat-color:${c.color}">
-          <div class="category-icon-large">${c.icon}</div>
+          <div class="category-icon-large">${getCategoryIcon(c.icon, 36)}</div>
           <h3>${esc(c.name_uz)}</h3>
           <p>${Number(c.book_count) || 0} kitob</p>
         </div>`,
@@ -339,7 +376,7 @@ function renderCategoryDetail({ id }) {
     <div class="page-header page-header-with-back">
       <button class="back-btn" id="backBtn">${icons.back}</button>
       <div>
-        <h2>${cat ? cat.icon + " " + esc(cat.name_uz) : "Turkum"}</h2>
+        <h2>${cat ? `<span class="inline-icon">${getCategoryIcon(cat.icon)}</span> ${esc(cat.name_uz)}` : "Turkum"}</h2>
         <p>${books.length} kitob</p>
       </div>
     </div>
@@ -357,7 +394,7 @@ function renderCategoryDetail({ id }) {
             )
             .join("")}</div>`
         : `<div class="empty-state">
-          <div class="empty-icon">📚</div>
+          <div class="empty-icon">${getCategoryIcon("library", 48)}</div>
           <h3>Hozircha kitob mavjud emas</h3>
           <p>Bu turkumga tez orada kitoblar qo'shiladi</p>
         </div>`
@@ -404,7 +441,7 @@ function renderBookDetail({ id }) {
       <h1>${esc(book.title)}</h1>
       <p class="detail-author">${esc(book.author)}</p>
       <div class="detail-badges">
-        ${cat ? `<span class="badge" style="--badge-color:${cat.color}">${cat.icon} ${esc(cat.name_uz)}</span>` : ""}
+        ${cat ? `<span class="badge" style="--badge-color:${cat.color}">${getCategoryIcon(cat.icon)} ${esc(cat.name_uz)}</span>` : ""}
         <span class="badge">${book.total_pages} sahifa</span>
         <span class="badge">${book.language === "en" ? "English" : "O'zbek"}</span>
         ${book.published_year ? `<span class="badge">${book.published_year}</span>` : ""}
@@ -473,7 +510,7 @@ let reader = {
 };
 
 const readerThemes = ["night", "day", "sepia"];
-const themeIcons = ["🌙", "☀️", "📜"];
+const themeIcons = [icons.moon, icons.sun, icons.scroll];
 
 function destroyReader() {
   if (reader.saveTimer) clearTimeout(reader.saveTimer);
@@ -507,7 +544,7 @@ async function renderReader({ id }) {
         <span id="readerPageLabel">Yuklanmoqda...</span>
       </div>
       <div class="reader-actions">
-        <button class="reader-theme-btn" id="readerThemeBtn">${themeIcons[0]}</button>
+        <button class="reader-theme-btn" id="readerThemeBtn" aria-label="Tema">${themeIcons[0]}</button>
       </div>
     </div>
     <div class="reader-canvas-container" id="readerContainer">
@@ -521,9 +558,9 @@ async function renderReader({ id }) {
         <input type="range" id="readerSlider" min="1" max="1" value="1" />
       </div>
       <div class="reader-btns">
-        <button id="readerPrev" disabled>◂ Oldingi</button>
+        <button id="readerPrev" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Oldingi</button>
         <span id="readerPercent">0%</span>
-        <button id="readerNext" disabled>Keyingi ▸</button>
+        <button id="readerNext" disabled>Keyingi <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
       <div class="reader-zoom-btns">
         <button id="readerZoomOut">A−</button>
@@ -626,7 +663,7 @@ async function renderReader({ id }) {
   function rotateTheme() {
     reader.themeIdx = (reader.themeIdx + 1) % readerThemes.length;
     readerPage.dataset.theme = readerThemes[reader.themeIdx];
-    document.getElementById("readerThemeBtn").textContent =
+    document.getElementById("readerThemeBtn").innerHTML =
       themeIcons[reader.themeIdx];
   }
 
@@ -700,6 +737,12 @@ async function renderReader({ id }) {
   try {
     const pdfLib = await loadPdfJs();
     const pdfUrl = `/books/${book.id}/pdf`;
+
+    const checkResp = await fetch(pdfUrl, { method: "HEAD" });
+    if (!checkResp.ok) {
+      throw new Error(`Server ${checkResp.status} qaytardi`);
+    }
+
     const task = pdfLib.getDocument(pdfUrl);
     reader.pdf = await task.promise;
     reader.totalPages = reader.pdf.numPages;
@@ -724,7 +767,11 @@ async function renderReader({ id }) {
     }
   } catch (err) {
     console.error("PDF yuklash xatoligi:", err);
-    loading.innerHTML = '<p style="color:#c75050">PDF yuklanmadi</p>';
+    loading.innerHTML = `<div style="text-align:center;padding:20px">
+      <p style="color:#c75050;margin-bottom:12px">PDF yuklanmadi</p>
+      <p style="color:#888;font-size:13px;margin-bottom:16px">${esc(err.message || "Noma'lum xatolik")}</p>
+      <button onclick="location.reload()" style="background:#2563eb;color:#fff;border:none;padding:10px 24px;border-radius:8px;font-size:14px;cursor:pointer">Qayta urinish</button>
+    </div>`;
   }
 }
 
@@ -800,7 +847,7 @@ async function renderProfile() {
       <h3>Sozlamalar</h3>
       <div class="settings-list">
         <div class="settings-item" id="settingTheme">
-          <span class="settings-item-label">🌙 Kitob o'qish rejimi</span>
+          <span class="settings-item-label">${icons.moon} Kitob o'qish rejimi</span>
           <span class="settings-item-value">Tungi ${icons.chevron}</span>
         </div>
         <div class="settings-item" id="settingAbout">

@@ -269,7 +269,14 @@ img {
 }
 
 .chip-icon {
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.chip-icon svg {
+  flex-shrink: 0;
 }
 
 .chip-name {
@@ -528,8 +535,15 @@ img {
 }
 
 .category-icon-large {
-  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
+  color: var(--cat-color, var(--accent));
+}
+
+.category-icon-large svg {
+  flex-shrink: 0;
 }
 
 .category-card h3 {
@@ -572,9 +586,16 @@ img {
 }
 
 .empty-icon {
-  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
-  opacity: 0.6;
+  opacity: 0.5;
+  color: var(--accent);
+}
+
+.empty-icon svg {
+  flex-shrink: 0;
 }
 
 .empty-state h3 {
@@ -654,7 +675,7 @@ img {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding: 6px 12px;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -662,6 +683,13 @@ img {
   font-size: 12px;
   color: var(--text-secondary);
   white-space: nowrap;
+}
+
+.badge svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--badge-color, var(--text-secondary));
 }
 
 .detail-progress {
@@ -836,7 +864,11 @@ img {
   justify-content: center;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  font-size: 16px;
+  color: var(--r-text);
+}
+
+.reader-theme-btn svg {
+  flex-shrink: 0;
 }
 
 .reader-canvas-container {
@@ -916,12 +948,19 @@ img {
 }
 
 .reader-btns button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   color: var(--r-text);
   font-size: 13px;
   font-weight: 600;
+}
+
+.reader-btns button svg {
+  flex-shrink: 0;
 }
 
 .reader-btns button:disabled {
@@ -1081,6 +1120,13 @@ img {
   font-weight: 500;
 }
 
+.settings-item-label svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
 .settings-item-value {
   font-size: 13px;
   color: var(--text-secondary);
@@ -1147,6 +1193,20 @@ img {
 
 .page-category-detail {
   padding: 16px;
+}
+
+/* ─── Inline Icon ─── */
+
+.inline-icon {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--accent);
+}
+
+.inline-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* ─── Utility ─── */

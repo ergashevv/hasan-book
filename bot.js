@@ -17,7 +17,7 @@ if (!webAppUrl) {
 const bot = new Telegraf(botToken);
 
 const openLibraryKeyboard = Markup.inlineKeyboard([
-  Markup.button.webApp("📚 Kutubxonani ochish", webAppUrl),
+  Markup.button.webApp("Kutubxonani ochish", webAppUrl),
 ]);
 
 bot.start(async (context) => {

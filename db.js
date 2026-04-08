@@ -13,7 +13,7 @@ async function ensureSchema() {
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
       name_uz TEXT NOT NULL,
-      icon TEXT NOT NULL DEFAULT '📚',
+      icon TEXT NOT NULL DEFAULT 'library',
       color TEXT NOT NULL DEFAULT '#c8a96e',
       sort_order INTEGER NOT NULL DEFAULT 0
     )
@@ -61,15 +61,15 @@ async function ensureSchema() {
 async function seedData() {
   await sql`
     INSERT INTO categories (id, name, name_uz, icon, color, sort_order) VALUES
-      (1, 'Artificial Intelligence', 'Sun''iy Intellekt', '🤖', '#6c5ce7', 1),
-      (2, 'Science & Technology', 'Fan va Texnologiya', '🔬', '#00b894', 2),
-      (3, 'Philosophy', 'Falsafa', '💭', '#e17055', 3),
-      (4, 'Business & Finance', 'Biznes va Moliya', '💼', '#fdcb6e', 4),
-      (5, 'History', 'Tarix', '📜', '#d63031', 5),
-      (6, 'Fiction', 'Badiiy Adabiyot', '📖', '#0984e3', 6),
-      (7, 'Psychology', 'Psixologiya', '🧠', '#a29bfe', 7),
-      (8, 'Self-Development', 'O''z-o''zini rivojlantirish', '🎯', '#55efc4', 8)
-    ON CONFLICT (id) DO NOTHING
+      (1, 'Artificial Intelligence', 'Sun''iy Intellekt', 'cpu', '#6c5ce7', 1),
+      (2, 'Science & Technology', 'Fan va Texnologiya', 'flask', '#00b894', 2),
+      (3, 'Philosophy', 'Falsafa', 'lightbulb', '#e17055', 3),
+      (4, 'Business & Finance', 'Biznes va Moliya', 'briefcase', '#fdcb6e', 4),
+      (5, 'History', 'Tarix', 'scroll', '#d63031', 5),
+      (6, 'Fiction', 'Badiiy Adabiyot', 'bookOpen', '#0984e3', 6),
+      (7, 'Psychology', 'Psixologiya', 'brain', '#a29bfe', 7),
+      (8, 'Self-Development', 'O''z-o''zini rivojlantirish', 'target', '#55efc4', 8)
+    ON CONFLICT (id) DO UPDATE SET icon = EXCLUDED.icon
   `;
 
   await sql`SELECT setval('categories_id_seq', GREATEST((SELECT COALESCE(MAX(id), 0) FROM categories), 8))`;
