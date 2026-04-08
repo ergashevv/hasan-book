@@ -1,7 +1,14 @@
-import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
+let pdfjsLib = null;
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+async function loadPdfJs() {
+  if (pdfjsLib) return pdfjsLib;
+  pdfjsLib = await import(
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
+  );
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+  return pdfjsLib;
+}
 
 /* ═══ Telegram Init ═══ */
 
@@ -691,8 +698,9 @@ async function renderReader({ id }) {
   window.addEventListener("resize", onResize);
 
   try {
+    const pdfLib = await loadPdfJs();
     const pdfUrl = `/books/${book.id}/pdf`;
-    const task = pdfjsLib.getDocument(pdfUrl);
+    const task = pdfLib.getDocument(pdfUrl);
     reader.pdf = await task.promise;
     reader.totalPages = reader.pdf.numPages;
 
