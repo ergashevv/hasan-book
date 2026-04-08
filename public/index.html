@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Kutubxona Reader</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body data-theme="night">
+    <div class="library-shell">
+      <header class="top-bar">
+        <div class="book-meta">
+          <p class="kicker">Telegram Kutubxona</p>
+          <h1>Superintelligence</h1>
+          <p id="pageLabel">Sahifa: 0 / 0</p>
+        </div>
+        <div class="top-actions">
+          <button id="themeBtn" class="ghost-btn" type="button">Tema</button>
+          <button id="fullscreenBtn" class="ghost-btn" type="button">Full screen</button>
+        </div>
+      </header>
+
+      <main class="reader-stage">
+        <div id="loadingState" class="loading">Kitob yuklanmoqda...</div>
+        <canvas id="pageCanvas" aria-label="PDF sahifa"></canvas>
+      </main>
+
+      <section class="control-panel">
+        <div class="row">
+          <button id="prevBtn" type="button">Oldingi</button>
+          <input id="pageSlider" type="range" min="1" max="1" value="1" />
+          <button id="nextBtn" type="button">Keyingi</button>
+        </div>
+        <div class="row compact">
+          <button id="zoomOutBtn" type="button">A-</button>
+          <button id="zoomInBtn" type="button">A+</button>
+          <span id="zoomLabel">100%</span>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>
