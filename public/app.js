@@ -514,6 +514,14 @@ const themeIcons = [icons.moon, icons.sun, icons.scroll];
 
 function destroyReader() {
   if (reader.saveTimer) clearTimeout(reader.saveTimer);
+  if (reader.pdf && tg) {
+    if (typeof tg.exitFullscreen === "function") {
+      try { tg.exitFullscreen(); } catch {}
+    }
+    if (typeof tg.enableVerticalSwipes === "function") {
+      try { tg.enableVerticalSwipes(); } catch {}
+    }
+  }
   reader.pdf = null;
   reader.bookId = null;
   reader.page = 1;
@@ -601,19 +609,30 @@ async function renderReader({ id }) {
     reader.rendering = true;
     const page = await reader.pdf.getPage(num);
     const iv = page.getViewport({ scale: 1 });
-    const aw = Math.max(280, container.clientWidth - 24);
-    const fitScale = aw / iv.width;
+    const aw = Math.max(280, container.clientWidth - 16);
+    const ah = container.clientHeight - 16;
+    const fitScaleW = aw / iv.width;
+    const fitScaleH = ah / iv.height;
+    const fitScale = Math.min(fitScaleW, fitScaleH);
     const scale = fitScale * reader.zoom;
-    const vp = page.getViewport({ scale });
+    const dpr = window.devicePixelRatio || 1;
 
-    canvas.width = Math.floor(vp.width);
-    canvas.height = Math.floor(vp.height);
-    await page.render({ canvasContext: ctx, viewport: vp }).promise;
+    const cssVp = page.getViewport({ scale });
+    const hiResVp = page.getViewport({ scale: scale * dpr });
+
+    canvas.width = Math.floor(hiResVp.width);
+    canvas.height = Math.floor(hiResVp.height);
+    canvas.style.width = Math.floor(cssVp.width) + "px";
+    canvas.style.height = Math.floor(cssVp.height) + "px";
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    await page.render({ canvasContext: ctx, viewport: hiResVp }).promise;
 
     loading.style.display = "none";
     canvas.style.display = "block";
     reader.rendering = false;
     updateUI();
+    container.scrollTo({ top: 0, behavior: "instant" });
 
     if (reader.queued !== null) {
       const q = reader.queued;
@@ -671,6 +690,12 @@ async function renderReader({ id }) {
     if (tg) {
       tg.setHeaderColor("#0e1117");
       tg.setBackgroundColor("#0e1117");
+      if (typeof tg.exitFullscreen === "function") {
+        try { tg.exitFullscreen(); } catch {}
+      }
+      if (typeof tg.enableVerticalSwipes === "function") {
+        try { tg.enableVerticalSwipes(); } catch {}
+      }
     }
     history.back();
   });
@@ -762,8 +787,13 @@ async function renderReader({ id }) {
     updateUI();
     await renderPdfPage(reader.page);
 
-    if (tg && typeof tg.requestFullscreen === "function") {
-      try { tg.requestFullscreen(); } catch {}
+    if (tg) {
+      if (typeof tg.requestFullscreen === "function") {
+        try { tg.requestFullscreen(); } catch {}
+      }
+      if (typeof tg.disableVerticalSwipes === "function") {
+        try { tg.disableVerticalSwipes(); } catch {}
+      }
     }
   } catch (err) {
     console.error("PDF yuklash xatoligi:", err);

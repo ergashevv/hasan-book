@@ -759,11 +759,16 @@ img {
   display: flex;
   flex-direction: column;
   animation: readerIn 0.25s ease-out;
+  padding: 0 !important;
 }
 
 @keyframes readerIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+.page-reader .reader-canvas-container canvas {
+  transition: none;
 }
 
 .page-reader[data-theme="night"] {
@@ -875,10 +880,11 @@ img {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow: auto;
-  padding: 12px;
+  padding: 8px;
   -webkit-overflow-scrolling: touch;
+  min-height: 0;
 }
 
 .reader-loading {
@@ -891,11 +897,11 @@ img {
 }
 
 #readerCanvas {
-  max-width: 100%;
-  height: auto;
+  display: block;
   background: var(--r-paper);
   border-radius: 4px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .reader-controls {
